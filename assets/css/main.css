@@ -3445,3 +3445,21 @@ body.index #main {
 		height: 34px;
 	}
 }
+pre code {
+	display: block;
+	line-height: 1.75;
+	padding: 1rem 1.5rem;
+	overflow-x: auto;
+}
+
+code {
+	background: rgba(220, 220, 220, 0.25);
+	border-color: #eeeeee;
+}
+code {
+	border: solid 2px;
+	font-family: "Courier New", monospace;
+	font-size: 0.9rem;
+	margin: 0 0.25rem;
+	padding: 0.25rem 0.65rem;
+}
