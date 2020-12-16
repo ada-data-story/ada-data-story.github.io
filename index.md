@@ -1,5 +1,7 @@
 ---
 layout: default
+title: Where to take my talents to - a world happiness analysis
+
 ---
 ### Abstract
 
