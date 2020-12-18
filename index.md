@@ -187,6 +187,7 @@ It is true that the number of cases detected is much higher in developed countri
 
 {% include plots/covid3.html %}
 <br/>
+The death rate in this analysis confirms the observations we’ve seen previously in which developed countries experience higher COVID-19 cases than developing countries. This result may be biased as developed countries have the infrastructure to support more testing, thus revealing more positive cases. As a result, we used deaths caused by COVID and GDP per capita as the dependent and independent variables, respectively. The results of our study indicate that there exists a significant positive correlation between death rate and GDP per capita. As such, this confirms that developed countries are of higher risk of COVID related deaths than developing countries.
 
 To view the results in a more intuitive way we have developed a map 
 <br/>
@@ -198,6 +199,7 @@ To view the results in a more intuitive way we have developed a map
 <br/>
 
 We can imagine that Lebron would not want to go to play in China!!
+
 ### Conclusions
 
 Be happy!
