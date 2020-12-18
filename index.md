@@ -72,7 +72,9 @@ We now shift gears and try to analyze the impacts geographic location has on a c
 
 While one approach may be to consider all features in the dataset and then applying a dimensionality reduction method such as t-SNE or PCA, we decide to apply K-means on just the `Happiness_Score`. The analysis is thus performed in one dimension, in which the data points are plotted linearly.
 
-{kmeans clustering, cluster plots, etc.}
+{% include plots/sse-vs-k.html %}
+
+{% include plots/scatter-k-means.html %}
 
 We propose an unsupervised approach to learn geographic continents solely based on happiness scores from our dataset. From the above plots, we see that this approach performs fairly poorly in grouping countries based on this criteria. While we do see some countries that are more dominant in certain clusters (e.g. Europe within clusters 1, 5 and 6), there does not seem to be enough supporting evidence for such approach to work. As a result, we conclude that countries belonging to a specific continent do not necessarily share similar happiness scores.
 
@@ -95,7 +97,7 @@ The above plot reveals that the average happiness score for all countries experi
 
 However, there are notable trends that exist between individual countries. While only some countries were sampled from the whole, it is expected that such trends would exist on an individual case by case basis. As such the displayed plots are by no means representative of the countries not displayed from the same cluster.
 
-{Trends plot}
+{% include plots/trendlines.html %}
 
 Countries such as Brazil and Zimbabwe have been experiencing a sharp decline in happiness scores over the past five years. This may be as a result of numerous factors such as increased corruption, lack of government intervention or worsened social services. We notice that Brazil's happiness score was more or less constant from 2015 to 2016. The decline it experienced afterwards may be attributed by hosting the 2016 Summer Olympics as it incurred significant debt and had to make drastic cuts in other areas of spending such as healthcare. This is contrast to the trend Estonia has experienced over the years.
 
