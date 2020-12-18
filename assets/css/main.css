@@ -3464,3 +3464,8 @@ code {
 	padding: 0.25rem 0.65rem;
 	text-align: center;
 }
+iframe {
+	min-height: 260px;
+	max-width: 100%;
+	overflow-x: hidden;
+}

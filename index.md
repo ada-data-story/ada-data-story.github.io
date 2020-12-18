@@ -62,7 +62,7 @@ Kurtosis:                       3.170   Cond. No.                         15.1
 
 We observe at the 95% significance level that `Perceptions_of_corruption` is not deemed significant.
 
-{include heatmap}
+{% include plots/heatmap.html %}
 
 We notice that from the correlation heatmap that there exists a strong correlation between `GDP_per_capita` and `Healthy_life_expectancy`. This observation is expected as wealthier countries tend to have a better environment and infrastructure that supports healthy living. Some examples of this include better hospital facilities, access to better nutrition, and programs that promote an active lifestyle.
 
