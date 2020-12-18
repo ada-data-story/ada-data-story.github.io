@@ -63,8 +63,7 @@ We observe at the 95% significance level that `Perceptions_of_corruption` is not
 
 We notice that from the correlation heatmap that there exists a strong correlation between `GDP_per_capita` and `Healthy_life_expectancy`. This observation is expected as wealthier countries tend to have a better environment and infrastructure that supports healthy living. Some examples of this include better hospital facilities, access to better nutrition, and programs that promote an active lifestyle.
 
-So, everything seems to indicate that if we had to take our talent as data scientists to some corner of the world, and not make a mistake in our decision, we would have to go to some country with money and health.
-
+This indicates to us that we should take our talents to country's that portray high levels of wealth, health, freedom or generosity.
 
 ### Are countries in specific geographic regions happier?
 
@@ -78,12 +77,14 @@ While one approach may be to consider all features in the dataset and then apply
 
 We propose an unsupervised approach to learn geographic continents solely based on happiness scores from our dataset. From the above plots, we see that this approach performs fairly poorly in grouping countries based on this criteria. While we do see some countries that are more dominant in certain clusters (e.g. Europe within clusters 1, 5 and 6), there does not seem to be enough supporting evidence for such approach to work. As a result, we conclude that countries belonging to a specific continent do not necessarily share similar happiness scores.
 
+As a result, we should be wary of moving to a specific country if nearby countries don't share the same levels of happiness.
+
 {% include plots/clusters1.html %}
 
 <br/>
 
 ### K-means for multiple variables
-We repeat the process but this time we do it taking into account the to most important covariates for our model.
+We repeat the process but this time we do it taking into account the two most important covariates for our model.
 
 {% include plots/3d-scatter-1.html %}
 
@@ -91,7 +92,7 @@ Then the clusters colored by continent:
 
 {% include plots/3d-scatter-2.html %}
 
-We propose an unsupervised approach to learn geographic continents, but this time based on happiness scores as well as the GDP_per_capita and the Healthy life expectancy. From the above plots, we see that it perfoms a better but even so, this method still remains a poor one.
+We propose an unsupervised approach to learn geographic continents, but this time based on happiness scores as well as the GDP_per_capita and the Healthy life expectancy. From the above plots, we see that it perfoms better but even so, this method still remains a poor choice.
 
 ### Trends in happiness
 
@@ -105,15 +106,17 @@ However, there are notable trends that exist between individual countries. While
 
 Countries such as Brazil and Zimbabwe have been experiencing a sharp decline in happiness scores over the past five years. This may be as a result of numerous factors such as increased corruption, lack of government intervention or worsened social services. We notice that Brazil's happiness score was more or less constant from 2015 to 2016. The decline it experienced afterwards may be attributed by hosting the 2016 Summer Olympics as it incurred significant debt and had to make drastic cuts in other areas of spending such as healthcare. This is contrast to the trend Estonia has experienced over the years.
 
+Perhaps we should consider taking our talents to countries that are experiencing significant rises in happiness scores. It may be in our best interest to consider settling down and purchasing real estate while such countries are still under the radar.
+
 {% include plots/world-hap-rank.html %}
 
-### MATCHING
+### Matching
 
-With matching, what we intend is to carry out an analysis having two groups, one for treatment and the other for control, with similar characteristics, that is, they have a similar propensity score, and in this way make a much more rigorous study.
-First, we are going to compare both groups in characteristics such as GDP, life expectancy, generosity ... Without doing any kind of matching, so the comparisons may not be giving us the information in a totally rigorous way. That is why we then calculate the propensity score, and match samples from both groups based on the similarity of their propensity score, and from there we make the same comparison between both groups in the different features.
+With matching, what we intend is to carry out an analysis having two groups, one for treatment and the other for control, with similar characteristics. That is, they have a similar propensity score, and in this way make a much more rigorous study.
 
-ESTO LO QUITABA Y PONIA EL GRAFICO DE LA COMPARACION:
-First we calculate the median of GPD per capita and then we create a dummy variable, indicating with 1 the countries that have a GPD greater than the median, and with 0 the countries with a GPD lower than the median.
+First, we are going to compare both groups in characteristics such as GDP, life expectancy, generosity, and so forth. Without doing any kind of matching, the comparisons between two countries may not be robust. That is why we then calculate the propensity score, and match samples from both groups based on the similarity of their propensity score, and from there we make the same comparison between both groups in different features.
+
+We calculate the median of GPD per capita and then we create a dummy variable, indicating with 1 the countries that have a GPD greater than the median, and with 0 the countries with a GPD lower than the median.
 
 Then, for each characteristic of the dataset, we compare the control group with the treatment group.
 
@@ -145,61 +148,55 @@ Perceptions_of_corruption    -1.9052      1.557     -1.223      0.221      -4.95
 =============================================================================================
 ```
 
-This function captures the difference in scores as a distance, but since the distance thus defined would always be between 0 and 1, subtracting it from 1 would be a significant measure to use for similarity.
-
 {% include plots/boxplot.html %}
 
 We can see a notable difference between the model with non-matched and the one with matched samples in the majority of values.
 
-All the variables involved in the calculation of the Propensity score are much more equal.
-Although the values have been equalized, we can say that the richest countries are also the happiest
-
-Another way to visualize would allow us to have a better inside knowledge on our new data.
+All the variables involved in the calculation of the propensity score are much more similar. Although the values have been equalized, we can say that the richest countries are also the happiest.
 
 Now, let's imagine that Lebron had to decide this Christmas where to play next year, or any of us had to choose a destination to work in the next few years. It is common to think that the first thing we would look at would be the impact of the coronavirus in that country. This is why the following reflection arose. How has the coronavirus affected people's happiness?
 
 ## How has the coronavirus impacted happiness?
-To answer this question, we have used the data that we have available to date.
-It is true that we do not have a large amount of data, but we consider that it is enough to draw some conclusions. For this we are going to use two datasheets published by John Hopkins University that consist of the number of confirmed cases and the number of deaths between January 22, 2020 and April 30, 2020.
+To answer this question, we have used the data that we have available to date. With the current situation, marked by the presence of the coronavirus, we wanted to try to study the impact of the pandemic on the happiness of the countries. We have obtained the coronavirus data from scarpping the Worldometer webpage.
 
-To study the impact of the coronavirus on happiness, we are going to study the relationship between the coronavirus and the two features that we have seen that have a greater relationship with happiness, such as GDP and life expectancy
+
+To study the impact of the coronavirus on happiness, we are going to study the relationship between the coronavirus and the two features that we have seen that have the greatest influence on happiness, GDP and life expectancy.
 
 <br/>
 
-### PLOT GDP vs MIR
+### GDP vs. Infection rate
 <br/>
 
 {% include plots/covid1.html %}
 
 <br/>
 
-### HEALTHY LIFE vs MIR
+### Life expectancy vs. Infection rate
 <br/>
 
 {% include plots/covid2.html %}
 <br/>
 
-It is true that the number of cases detected is much higher in developed countries and this may be due to the fact that in developed countries there is more testing work. For this reason, we analyze the number of deaths, in order to obtain a slightly more reliable meaning, which gives us an idea closer to reality.
+It is true that the number of cases detected is much higher in developed countries and this may be due to the fact that in developed countries there is more testing work. For this reason, we analyze the number of deaths instead, in order to obtain a better understanding of our data.
+
 <br/>
 
-### PLOT GDP vs DEATHS
+### GDP vs. Deaths
 <br/>
 
 {% include plots/covid3.html %}
 <br/>
 The death rate in this analysis confirms the observations we’ve seen previously in which developed countries experience higher COVID-19 cases than developing countries. This result may be biased as developed countries have the infrastructure to support more testing, thus revealing more positive cases. As a result, we used deaths caused by COVID and GDP per capita as the dependent and independent variables, respectively. The results of our study indicate that there exists a significant positive correlation between death rate and GDP per capita. As such, this confirms that developed countries are of higher risk of COVID related deaths than developing countries.
 
-To view the results in a more intuitive way we have developed a map 
-<br/>
+To view the results in a more intuitive, we show below the COVID infection rate cases per country around the world.
 
-### PLOT MAP
 <br/>
 
 {% include plots/world_map_covid.html %}
 <br/>
 
-We can imagine that Lebron would not want to go to play in China!!
+We see in the plot above, that maybe Lebron should reconsider taking his talents to Los Angeles this season. He may want to consider playing for the EPFL ADA team located in Lausanne, Switzerland instead!
 
 ### Conclusions
 
-Be happy!
+Regardless of where one decides to take his or her talent, the most important thing is to be happy wherever one goes!
