@@ -76,7 +76,16 @@ While one approach may be to consider all features in the dataset and then apply
 
 We propose an unsupervised approach to learn geographic continents solely based on happiness scores from our dataset. From the above plots, we see that this approach performs fairly poorly in grouping countries based on this criteria. While we do see some countries that are more dominant in certain clusters (e.g. Europe within clusters 1, 5 and 6), there does not seem to be enough supporting evidence for such approach to work. As a result, we conclude that countries belonging to a specific continent do not necessarily share similar happiness scores.
 
+### K-means for multiple variables
+We repeat the process but this time we do it taking into account the to most important covariates for our model.
+
 {% include plots/3d-scatter-1.html %}
+
+Then the clusters colored by continent:
+
+{% include plots/3d-scatter-2.html %}
+
+We propose an unsupervised approach to learn geographic continents, but this time based on happiness scores as well as the GDP_per_capita and the Healthy life expectancy. From the above plots, we see that it perfoms a better but even so, this method still remains a poor one.
 
 ### Trends in happiness
 
@@ -89,6 +98,8 @@ However, there are notable trends that exist between individual countries. While
 {Trends plot}
 
 Countries such as Brazil and Zimbabwe have been experiencing a sharp decline in happiness scores over the past five years. This may be as a result of numerous factors such as increased corruption, lack of government intervention or worsened social services. We notice that Brazil's happiness score was more or less constant from 2015 to 2016. The decline it experienced afterwards may be attributed by hosting the 2016 Summer Olympics as it incurred significant debt and had to make drastic cuts in other areas of spending such as healthcare. This is contrast to the trend Estonia has experienced over the years.
+
+{% include plots/world-hap-rank.html %}
 
 ### MATCHING
 
