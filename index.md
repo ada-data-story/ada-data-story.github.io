@@ -10,9 +10,7 @@ In the summer of 2010, in a much anticipated decision, NBA all-star Lebron James
 
 For each year's dataframe, we will preprocess the data by determinig if there are any invalid entries. Specifically, any values of NaN or 0 (when not appropriate), will be treated by taking the mean of the remaining values in the column. We then concatenate all the dataframes to form a final version which includes all the years.
 
-{include tables, plots, etc.}
-
-We observe that the values with zero/null can in fact be replaced by the mean of the remaining entries for the corresponding column. The only columns where this wouldn't make sense is for `Country` and `Happiness_Rank`. We note that `y2020` has no invalid entries.
+After processing the data, we observe that the values with zero/null can in fact be replaced by the mean of the remaining entries for the corresponding column. The only columns where this wouldn't make sense is for `Country` and `Happiness_Rank`. We note that `y2020` has no invalid entries.
 
 We now mask all zero/null entries with the corresponding column mean.
 
@@ -80,6 +78,10 @@ While one approach may be to consider all features in the dataset and then apply
 
 We propose an unsupervised approach to learn geographic continents solely based on happiness scores from our dataset. From the above plots, we see that this approach performs fairly poorly in grouping countries based on this criteria. While we do see some countries that are more dominant in certain clusters (e.g. Europe within clusters 1, 5 and 6), there does not seem to be enough supporting evidence for such approach to work. As a result, we conclude that countries belonging to a specific continent do not necessarily share similar happiness scores.
 
+{% include plots/clusters1.html %}
+
+<br/>
+
 ### K-means for multiple variables
 We repeat the process but this time we do it taking into account the to most important covariates for our model.
 
@@ -143,6 +145,10 @@ Perceptions_of_corruption    -1.9052      1.557     -1.223      0.221      -4.95
 =============================================================================================
 ```
 
+This function captures the difference in scores as a distance, but since the distance thus defined would always be between 0 and 1, subtracting it from 1 would be a significant measure to use for similarity.
+
+{% include plots/boxplot.html %}
+
 We can see a notable difference between the model with non-matched and the one with matched samples in the majority of values.
 
 All the variables involved in the calculation of the Propensity score are much more equal.
@@ -158,15 +164,38 @@ It is true that we do not have a large amount of data, but we consider that it i
 
 To study the impact of the coronavirus on happiness, we are going to study the relationship between the coronavirus and the two features that we have seen that have a greater relationship with happiness, such as GDP and life expectancy
 
-PLOT GDP vs MIR 
+<br/>
+
+### PLOT GDP vs MIR
+<br/>
+
+{% include plots/covid1.html %}
+
+<br/>
+
+### HEALTHY LIFE vs MIR
+<br/>
+
+{% include plots/covid2.html %}
+<br/>
 
 It is true that the number of cases detected is much higher in developed countries and this may be due to the fact that in developed countries there is more testing work. For this reason, we analyze the number of deaths, in order to obtain a slightly more reliable meaning, which gives us an idea closer to reality.
+<br/>
 
-PLOT GDP vs DEATHS 
+### PLOT GDP vs DEATHS
+<br/>
+
+{% include plots/covid3.html %}
+<br/>
 
 To view the results in a more intuitive way we have developed a map 
+<br/>
 
-PLOT MAP
+### PLOT MAP
+<br/>
+
+{% include plots/world_map_covid.html %}
+<br/>
 
 We can imagine that Lebron would not want to go to play in China!!
 ### Conclusions
