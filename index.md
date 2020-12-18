@@ -76,6 +76,8 @@ While one approach may be to consider all features in the dataset and then apply
 
 We propose an unsupervised approach to learn geographic continents solely based on happiness scores from our dataset. From the above plots, we see that this approach performs fairly poorly in grouping countries based on this criteria. While we do see some countries that are more dominant in certain clusters (e.g. Europe within clusters 1, 5 and 6), there does not seem to be enough supporting evidence for such approach to work. As a result, we conclude that countries belonging to a specific continent do not necessarily share similar happiness scores.
 
+{% include plots/3d-scatter-1.html %}
+
 ### Trends in happiness
 
 We now evaluate the trends in happiness levels over the years from 2015 to 2020. We calculate the mean happiness scores for all countries belonging in each year to see if there exists an evident trend over time. We also look at specific countries that are selected at random from one of the seven clusters defined previously. Recall that each cluster is supposed to represent a grouping of countries with similar happiness scores. As a result, the analysis will be able to display trends in happiness of countries spanning the whole range (from very unhappy to very happy).
